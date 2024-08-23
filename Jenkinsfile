@@ -1,25 +1,25 @@
 pipeline {
     agent any
-    steps {
-        step('Build') {
+    stages {
+        stage('Build') {
             echo "Building using Maven..."
         }
-        step('Unit and Integration Tests') {
+        stage('Unit and Integration Tests') {
             echo "Testing using Selenium..."
         }
-        step('Code Analysis') {
+        stage('Code Analysis') {
             echo "Code analysis using Synk Code..."
         }
-        step('Security Scan') {
+        stage('Security Scan') {
             echo "Security scanning using SonarQube..."
         }
-        step('Deploy to Staging') {
+        stage('Deploy to Staging') {
             echo "Deploying to AWS EC2 instance..."
         }
-        step('Integration Tests on Staging') {
+        stage('Integration Tests on Staging') {
             echo "Running integration tests on the staging environment..."
         }
-        step('Deploy to Production') {
+        stage('Deploy to Production') {
             echo "Deploying to AWS EC2 instance..."
         }
     }
