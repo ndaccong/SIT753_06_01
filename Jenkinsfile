@@ -14,6 +14,9 @@ pipeline {
                 success {
                     emailext(body: "Test was successful!", subject: "Test status email", to: "kanendc@gmail.com", attachLog: true)
                 }
+                failure {
+                    emailext(body: "Test was unsuccessful!", subject: "Test status email", to: "kanendc@gmail.com", attachLog: true)
+                }
             }
         }
         stage('Code Analysis') {
@@ -24,6 +27,14 @@ pipeline {
         stage('Security Scan') {
             steps {
                 echo "Security scanning using SonarQube..."
+            }
+            post {
+                success {
+                    emailext(body: "Test was successful!", subject: "Test status email", to: "kanendc@gmail.com", attachLog: true)
+                }
+                failure {
+                    emailext(body: "Test was unsuccessful!", subject: "Test status email", to: "kanendc@gmail.com", attachLog: true)
+                }
             }
         }
         stage('Deploy to Staging') {
