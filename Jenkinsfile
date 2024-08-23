@@ -12,7 +12,7 @@ pipeline {
             }
             post {
                 success {
-                    emailext(body: "Test was successful!", subject: "Test status email", to: "kanendc@gmail.com", attachLog: true)
+                    emailext(body: "Test was successful!!", subject: "Test status email", to: "kanendc@gmail.com", attachLog: true)
                 }
                 failure {
                     emailext(body: "Test was unsuccessful!", subject: "Test status email", to: "kanendc@gmail.com", attachLog: true)
