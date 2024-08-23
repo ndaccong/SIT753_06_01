@@ -10,6 +10,14 @@ pipeline {
             steps {
                 echo "Testing using Selenium..."
             }
+            post {
+                success {
+                    emailext subject: "Test status email"
+                    body: "Test was successful!"
+                    to: "kanendc@gmail.com"
+                    attachLog: True
+                }
+            }
         }
         stage('Code Analysis') {
             steps {
