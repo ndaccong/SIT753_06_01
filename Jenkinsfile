@@ -12,10 +12,10 @@ pipeline {
             }
             post {
                 success {
-                    emailext subject: "Test status email"
-                    body: "Test was successful!"
-                    to: "kanendc@gmail.com"
-                    attachLog: True
+                    emailext body: "Test was successful!"
+                        subject: "Test status email"
+                        to: "kanendc@gmail.com"
+                        attachLog: True
                 }
             }
         }
